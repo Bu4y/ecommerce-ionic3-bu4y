@@ -1,10 +1,10 @@
-export class userInfo {
-
-    username:String;
-    firstname:String;
-    lastname:String;
-    eamil: String;
-    password: String;
-    tel: String;
-
+export class AuthorizeModel {
+    displayName: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    password: string;
+    profileImageURL: string;
+    roles: Array<string>;
 }

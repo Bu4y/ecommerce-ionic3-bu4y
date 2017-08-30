@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
-import { userInfo } from "./register.model";
+import { AuthorizeModel } from "./register.model";
 import { RegisterServiceProvider } from "./register.service";
-import { AuthorizeProvider } from "../../providers/authorize/authorize";
 
 /**
  * Generated class for the RegisterPage page.
@@ -19,8 +18,8 @@ import { AuthorizeProvider } from "../../providers/authorize/authorize";
 })
 export class RegisterPage {
   signup: FormGroup;
-  userInfo: userInfo = new userInfo();
-  constructor(public navCtrl: NavController, public navParams: NavParams, public regisService: RegisterServiceProvider, public authorizeProvider: AuthorizeProvider) {
+  userInfo: AuthorizeModel = new AuthorizeModel();
+  constructor(public navCtrl: NavController, public navParams: NavParams, public regisService: RegisterServiceProvider) {
     this.signup = new FormGroup({
       username: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
@@ -38,9 +37,9 @@ export class RegisterPage {
 
   doSignup() {
     this.userInfo = this.signup.value;
-    
+
     console.log(this.userInfo);
-    this.authorizeProvider.newAuthorization().then((data) => {
+    this.regisService.newAuthorization().then((data) => {
       console.log(data);
     }, (error) => {
       console.error(error);
