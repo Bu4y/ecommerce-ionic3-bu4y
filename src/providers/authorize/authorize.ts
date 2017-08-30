@@ -3,7 +3,6 @@ import { Http } from '@angular/http';
 import { App } from "ionic-angular";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-
 import { LoginPage } from "../../pages/login/login";
 import { AuthorizeModel } from "./authorize.model";
 /*
@@ -14,15 +13,18 @@ import { AuthorizeModel } from "./authorize.model";
 */
 @Injectable()
 export class AuthorizeProvider {
-
   constructor(public http: Http, public app: App) {
     console.log('Hello AuthorizeProvider Provider');
+
   }
 
   isAuthorization() {
     let user = JSON.parse(window.localStorage.getItem('e7e_ecommerce_buy_user'));
     if (!user) {
-      this.app.getRootNav().push(LoginPage);
+      // this.app.getRootNav().push(LoginPage);
+      let nav = this.app.getActiveNav();
+      nav.push(LoginPage);
+      // console.log('object');
     } else {
       return user;
     }
@@ -41,8 +43,8 @@ export class AuthorizeProvider {
     return this.http.get('./assets/example_data/profile.json')
       .toPromise()
       .then(response => {
-        response.json() as AuthorizeModel;
         window.localStorage.setItem('e7e_ecommerce_buy_user', JSON.stringify(response));
+        return response.json() as AuthorizeModel;
       })
       .catch(this.handleError);
   }
@@ -51,10 +53,14 @@ export class AuthorizeProvider {
     return this.http.get('./assets/example_data/profile.json')
       .toPromise()
       .then(response => {
-        response.json() as AuthorizeModel;
         window.localStorage.setItem('e7e_ecommerce_buy_user', JSON.stringify(response));
+        return response.json() as AuthorizeModel;
       })
       .catch(this.handleError);
+  }
+
+  unAuthorization() {
+
   }
 
   private handleError(error: any): Promise<any> {
