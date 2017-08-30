@@ -43,8 +43,9 @@ export class AuthorizeProvider {
     return this.http.get('./assets/example_data/profile.json')
       .toPromise()
       .then(response => {
-        window.localStorage.setItem('e7e_ecommerce_buy_user', JSON.stringify(response));
-        return response.json() as AuthorizeModel;
+        let data = response.json() as AuthorizeModel;
+        window.localStorage.setItem('e7e_ecommerce_buy_user', JSON.stringify(data));
+        return data;
       })
       .catch(this.handleError);
   }
@@ -53,14 +54,16 @@ export class AuthorizeProvider {
     return this.http.get('./assets/example_data/profile.json')
       .toPromise()
       .then(response => {
-        window.localStorage.setItem('e7e_ecommerce_buy_user', JSON.stringify(response));
-        return response.json() as AuthorizeModel;
+        let data = response.json() as AuthorizeModel;
+        window.localStorage.setItem('e7e_ecommerce_buy_user', JSON.stringify(data));
+        return data;
       })
       .catch(this.handleError);
   }
 
   unAuthorization() {
-
+    window.localStorage.removeItem('e7e_ecommerce_buy_user');
+    return;
   }
 
   private handleError(error: any): Promise<any> {
