@@ -4,6 +4,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 import { userInfo } from "./register.model";
 import { RegisterServiceProvider } from "./register.service";
+import { AuthorizeProvider } from "../../providers/authorize/authorize";
 
 /**
  * Generated class for the RegisterPage page.
@@ -19,7 +20,7 @@ import { RegisterServiceProvider } from "./register.service";
 export class RegisterPage {
   signup: FormGroup;
   userInfo: userInfo = new userInfo();
-  constructor(public navCtrl: NavController, public navParams: NavParams, public regisService: RegisterServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public regisService: RegisterServiceProvider, public authorizeProvider: AuthorizeProvider) {
     this.signup = new FormGroup({
       username: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
@@ -37,7 +38,13 @@ export class RegisterPage {
 
   doSignup() {
     this.userInfo = this.signup.value;
+    
     console.log(this.userInfo);
+    this.authorizeProvider.newAuthorization().then((data) => {
+      console.log(data);
+    }, (error) => {
+      console.error(error);
+    });
     // if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.signup.value.email)) {
     //   if (this.signup.value.password.length < 7) {
     //     alert('Please input password at less 8 character');
