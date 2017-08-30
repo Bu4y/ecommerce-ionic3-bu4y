@@ -5,7 +5,6 @@
     "lastName": "Tubrit",
     "password": "aQBLaRa2zMK2msi1TlUMQBnW/aGV/xmw30Uc9XGb7Yilo922xcJ797zDaCLthrSY6gdIJu9FLUI758sgkBK9Xw==",
     "profileImageURL": "assets/images/pin.min.png",
-    "provider": "local",
     "roles": [
         "user"
     ],

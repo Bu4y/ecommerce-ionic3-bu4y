@@ -79,6 +79,7 @@ import { ListFilterPipe } from '../pipes/list-filter/list-filter';
 import { LoginPage } from "../pages/login/login";
 import { LoginServiceProvider } from '../pages/login/login.service';
 import { RegisterServiceProvider } from '../pages/register/register.service';
+import { AuthorizeProvider } from '../providers/authorize/authorize';
 
 
 export function createTranslateLoader(http: Http) {
@@ -170,7 +171,8 @@ export function createTranslateLoader(http: Http) {
     ProfileServiceProvider,
     SearchServiceProvider,
     LoginServiceProvider,
-    RegisterServiceProvider
+    RegisterServiceProvider,
+    AuthorizeProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
