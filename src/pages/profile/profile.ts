@@ -23,13 +23,10 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-    this.authorizeProvider.isAuthorization();
-    this.authorizeProvider.onAuthorization().then((data) => {
-      console.log(data);
-    }, (error) => {
-      console.error(error);
-    });
-    // this.getProfileData();
+  }
+
+  ionViewWillEnter() {
+    this.dataProfile = this.authorizeProvider.isAuthorization();
   }
 
   // getProfileData() {
