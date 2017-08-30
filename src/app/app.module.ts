@@ -76,6 +76,9 @@ import { CartlistComponent } from '../components/cartlist/cartlist';
 import { SearchbarComponent } from "../components/searchbar/searchbar";
 import { SearchServiceProvider } from "../pages/search/search.service";
 import { ListFilterPipe } from '../pipes/list-filter/list-filter';
+import { LoginPage } from "../pages/login/login";
+import { LoginServiceProvider } from '../pages/login/login.service';
+import { RegisterServiceProvider } from '../pages/register/register.service';
 
 
 export function createTranslateLoader(http: Http) {
@@ -111,7 +114,8 @@ export function createTranslateLoader(http: Http) {
     TopbarComponent,
     CartlistComponent,
     SearchbarComponent,
-    ListFilterPipe
+    ListFilterPipe,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -138,7 +142,8 @@ export function createTranslateLoader(http: Http) {
     ProfilePage,
     FavoritePage,
     ProductDetailPage,
-    ShopDetailPage
+    ShopDetailPage,
+    LoginPage
   ],
   providers: [
     HomeService,
@@ -163,7 +168,9 @@ export function createTranslateLoader(http: Http) {
     EmailComposer,
     FavoriteServiceProvider,
     ProfileServiceProvider,
-    SearchServiceProvider
+    SearchServiceProvider,
+    LoginServiceProvider,
+    RegisterServiceProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -10,6 +10,7 @@ import { HomePage } from "../pages/home/home";
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { TabsNavigationPage } from "../pages/tabs-navigation/tabs-navigation";
+import { LoginPage } from "../pages/login/login";
 
 
 @Component({
