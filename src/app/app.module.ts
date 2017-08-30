@@ -79,6 +79,7 @@ import { ListFilterPipe } from '../pipes/list-filter/list-filter';
 import { LoginPage } from "../pages/login/login";
 import { LoginServiceProvider } from '../pages/login/login.service';
 import { RegisterServiceProvider } from '../pages/register/register.service';
+import { RegisterPage } from "../pages/register/register";
 
 
 export function createTranslateLoader(http: Http) {
@@ -115,7 +116,8 @@ export function createTranslateLoader(http: Http) {
     CartlistComponent,
     SearchbarComponent,
     ListFilterPipe,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -143,7 +145,8 @@ export function createTranslateLoader(http: Http) {
     FavoritePage,
     ProductDetailPage,
     ShopDetailPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     HomeService,
